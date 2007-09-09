@@ -1,10 +1,11 @@
 %define	major 4
-%define libname	%mklibname ruli %{major}
+%define libname %mklibname ruli %{major}
+%define develname %mklibname ruli -d
 
 Summary:	The RULI (Resolver User Layer Interface) library
 Name:		ruli
 Version:	0.36
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nongnu.org/ruli/
@@ -41,15 +42,15 @@ are bindings for PHP and Perl. IPv6 is supported.
 As side-effect, RULI also provides a general-purpose,
 event-driven, asynchronous, stub DNS resolver. 
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the %{libname} library
 Group:		Development/C
-Obsoletes:	%{name}-devel lib%{name}-devel
-Provides:	%{name}-devel = %{version}
-Provides:	lib%{name}-devel = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
+Obsoletes:	%{mklibname ruli 4 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 RULI stands for Resolver User Layer Interface. It's a library
 built on top of an asynchronous DNS stub resolver. RULI provides
 an easy-to-use interface for querying DNS SRV resource records.
@@ -116,7 +117,7 @@ done
 %attr(0755,root,root) %{_libdir}/*.so.*
 %attr(0644,root,root) %{_mandir}/man3/*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc TODO
 %attr(0644,root,root) %{_includedir}/*.h
@@ -128,5 +129,3 @@ done
 %doc tools/README
 %attr(0755,root,root) %{_bindir}/*
 %attr(0644,root,root) %{_mandir}/man1/*
-
-
