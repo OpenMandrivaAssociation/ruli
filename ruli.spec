@@ -14,7 +14,6 @@ Source2:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz.si
 Patch0:		ruli-0.35-optflags.diff
 BuildRequires:	oop-devel
 BuildConflicts:	%{name}-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 RULI stands for Resolver User Layer Interface. It's a library
