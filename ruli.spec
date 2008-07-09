@@ -5,7 +5,7 @@
 Summary:	The RULI (Resolver User Layer Interface) library
 Name:		ruli
 Version:	0.36
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nongnu.org/ruli/
@@ -14,7 +14,7 @@ Source2:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz.si
 Patch0:		ruli-0.35-optflags.diff
 BuildRequires:	oop-devel
 BuildConflicts:	%{name}-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 RULI stands for Resolver User Layer Interface. It's a library
@@ -93,7 +93,7 @@ done
 #	DEFINE_SOLARIS="%{optflags} -fPIC"
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 for dir in src sample tools; do
     make -C $dir \
@@ -113,7 +113,7 @@ done
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
