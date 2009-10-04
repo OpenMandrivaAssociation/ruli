@@ -5,7 +5,7 @@
 Summary:	The RULI (Resolver User Layer Interface) library
 Name:		ruli
 Version:	0.36
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nongnu.org/ruli/
