@@ -12,6 +12,7 @@ URL:		http://www.nongnu.org/ruli/
 Source0:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz
 Source2:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz.sig
 Patch0:		ruli-0.35-optflags.diff
+Patch1:		ruli-0.36-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	oop-devel
 BuildConflicts:	%{name}-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -80,6 +81,7 @@ event-driven, asynchronous, stub DNS resolver.
 
 %setup -q -n %{name}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 
