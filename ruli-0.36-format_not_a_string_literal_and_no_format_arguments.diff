@@ -1,0 +1,210 @@
+diff -Naurp ruli-0.36/sample/getaddrinfo.c ruli-0.36.oden/sample/getaddrinfo.c
+--- ruli-0.36/sample/getaddrinfo.c	2005-08-31 12:43:17.000000000 +0200
++++ ruli-0.36.oden/sample/getaddrinfo.c	2009-10-05 16:06:43.000000000 +0200
+@@ -174,7 +174,7 @@ static void solve(const char *fullname)
+ 
+       for (ai = ai_res; ai; ai = ai->ai_next) {
+ 
+-	printf(fullname);
++	printf("%s", fullname);
+ 
+ 	switch (ai->ai_family) {
+ 	case PF_INET:
+diff -Naurp ruli-0.36/sample/ruli-getaddrinfo.c ruli-0.36.oden/sample/ruli-getaddrinfo.c
+--- ruli-0.36/sample/ruli-getaddrinfo.c	2005-08-30 15:40:28.000000000 +0200
++++ ruli-0.36.oden/sample/ruli-getaddrinfo.c	2009-10-05 16:06:43.000000000 +0200
+@@ -176,7 +176,7 @@ static void solve(const char *fullname)
+ 
+       for (ai = ai_res; ai; ai = ai->ai_next) {
+ 
+-	printf(fullname);
++	printf("%s", fullname);
+ 
+ 	switch (ai->ai_family) {
+ 	case PF_INET:
+diff -Naurp ruli-0.36/tools/addrsolver2.c ruli-0.36.oden/tools/addrsolver2.c
+--- ruli-0.36/tools/addrsolver2.c	2005-06-08 00:17:51.000000000 +0200
++++ ruli-0.36.oden/tools/addrsolver2.c	2009-10-05 16:06:43.000000000 +0200
+@@ -75,7 +75,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+     
+     return clean_query(qry, domain);
+   }
+@@ -86,7 +86,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+ 
+     return clean_query(qry, domain);
+   }
+@@ -115,7 +115,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+   }
+ #endif
+   
+@@ -136,7 +136,7 @@ static void *on_answer(ruli_res_query_t 
+       
+       assert(str_len < BUFSZ);
+       
+-      printf(buf);
++      printf("%s", buf);
+ 
+       ruli_parse_delete(&parse);
+       return clean_query(qry, domain);
+@@ -213,7 +213,7 @@ static void *on_answer(ruli_res_query_t 
+     if (!addr_count) {
+       str_len = snprintf(buf, BUFSZ, "%s answer-missing-address\n", domain);
+       assert(str_len < BUFSZ);
+-      printf(buf);
++      printf("%s", buf);
+     }
+   }
+ 
+diff -Naurp ruli-0.36/tools/addrsolver3.c ruli-0.36.oden/tools/addrsolver3.c
+--- ruli-0.36/tools/addrsolver3.c	2005-06-08 00:17:51.000000000 +0200
++++ ruli-0.36.oden/tools/addrsolver3.c	2009-10-05 16:06:43.000000000 +0200
+@@ -75,7 +75,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+     
+     return clean_query(qry, domain);
+   }
+@@ -86,7 +86,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+ 
+     return clean_query(qry, domain);
+   }
+@@ -115,7 +115,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+   }
+ #endif
+   
+@@ -136,7 +136,7 @@ static void *on_answer(ruli_res_query_t 
+       
+       assert(str_len < BUFSZ);
+       
+-      printf(buf);
++      printf("%s", buf);
+ 
+       ruli_parse_delete(&parse);
+       return clean_query(qry, domain);
+@@ -213,7 +213,7 @@ static void *on_answer(ruli_res_query_t 
+     if (!addr_count) {
+       str_len = snprintf(buf, BUFSZ, "%s answer-missing-address\n", domain);
+       assert(str_len < BUFSZ);
+-      printf(buf);
++      printf("%s", buf);
+     }
+   }
+ 
+diff -Naurp ruli-0.36/tools/addrsolver.c ruli-0.36.oden/tools/addrsolver.c
+--- ruli-0.36/tools/addrsolver.c	2005-06-08 00:17:51.000000000 +0200
++++ ruli-0.36.oden/tools/addrsolver.c	2009-10-05 16:06:43.000000000 +0200
+@@ -75,7 +75,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+     
+     return clean_query(qry, domain);
+   }
+@@ -86,7 +86,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+ 
+     return clean_query(qry, domain);
+   }
+@@ -115,7 +115,7 @@ static void *on_answer(ruli_res_query_t 
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+   }
+ #endif
+   
+@@ -136,7 +136,7 @@ static void *on_answer(ruli_res_query_t 
+       
+       assert(str_len < BUFSZ);
+       
+-      printf(buf);
++      printf("%s", buf);
+ 
+       ruli_parse_delete(&parse);
+       return clean_query(qry, domain);
+@@ -213,7 +213,7 @@ static void *on_answer(ruli_res_query_t 
+     if (!addr_count) {
+       str_len = snprintf(buf, BUFSZ, "%s answer-missing-address\n", domain);
+       assert(str_len < BUFSZ);
+-      printf(buf);
++      printf("%s", buf);
+     }
+   }
+ 
+diff -Naurp ruli-0.36/tools/ipv6.c ruli-0.36.oden/tools/ipv6.c
+--- ruli-0.36/tools/ipv6.c	2004-06-17 01:05:58.000000000 +0200
++++ ruli-0.36.oden/tools/ipv6.c	2009-10-05 16:06:43.000000000 +0200
+@@ -43,7 +43,7 @@ static void perform(int expected_good, c
+     int r = ruli_inet6_snprintf(buf, 40, "%04X", &in);
+     assert(r > 0);
+     assert(r < 40);
+-    printf(buf);
++    printf("%s", buf);
+   }
+    
+   if (!good == !expected_good) 
+diff -Naurp ruli-0.36/tools/ruli-host.c ruli-0.36.oden/tools/ruli-host.c
+--- ruli-0.36/tools/ruli-host.c	2004-11-10 16:29:39.000000000 +0100
++++ ruli-0.36.oden/tools/ruli-host.c	2009-10-05 16:06:43.000000000 +0200
+@@ -70,7 +70,7 @@ static void *on_answer(ruli_host_t *qry,
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+     
+     return clean_query(qry, domain);
+   }
+@@ -85,7 +85,7 @@ static void *on_answer(ruli_host_t *qry,
+     str_len = snprintf(buf, BUFSZ, "%s query-failure: %d\n", 
+ 		       domain, answer_code);
+     assert(str_len < BUFSZ);
+-    printf(buf);
++    printf("%s", buf);
+ 
+     return clean_query(qry, domain);
+   }
+@@ -109,7 +109,7 @@ static void *on_answer(ruli_host_t *qry,
+ 
+     assert(str_len < BUFSZ);
+ 
+-    printf(buf);
++    printf("%s", buf);
+   }
+ #endif
+   

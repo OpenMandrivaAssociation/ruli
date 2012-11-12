@@ -1,0 +1,36 @@
+diff -Naur ruli-0.35/sample/Makefile ruli-0.35.oden/sample/Makefile
+--- ruli-0.35/sample/Makefile	2005-09-01 13:16:20.000000000 +0200
++++ ruli-0.35.oden/sample/Makefile	2005-11-26 19:02:08.000000000 +0100
+@@ -36,7 +36,7 @@
+ endif
+ 
+ CC      = gcc
+-CFLAGS  = -O2 -pipe -Wall -g -I../src -I$(OOP_INCLUDE_DIR)
++CFLAGS  = $(RPM_OPT_FLAGS) -I../src -I$(OOP_INCLUDE_DIR)
+ LDFLAGS = -L../src -L$(OOP_LIB_DIR) $(SOLARIS_LDFLAGS)
+ UNRULI_LINK = $(CC) $(ARCH) $(LDFLAGS) -o $@ $^ $(SOLARIS_LIBS)
+ LINK = $(UNRULI_LINK) -lruli -loop
+diff -Naur ruli-0.35/src/Makefile ruli-0.35.oden/src/Makefile
+--- ruli-0.35/src/Makefile	2005-06-13 18:34:53.000000000 +0200
++++ ruli-0.35.oden/src/Makefile	2005-11-26 19:02:08.000000000 +0100
+@@ -58,7 +58,7 @@
+ FLAGS = $(DEBUG) -O2 -pipe -Wall -g -shared -D_REENTRANT \
+         $(DEFINE_SOLARIS) -I. -I$(OOP_INCLUDE_DIR)
+ SOFT_CFLAGS = $(WARN) $(FLAGS)
+-CFLAGS = $(WARN) -Werror $(FLAGS)
++CFLAGS = $(RPM_OPT_FLAGS) $(WARN) $(FLAGS)
+ LIBOBJ = ruli_isaac.o ruli_mem.o ruli_rand.o ruli_util.o ruli_list.o \
+ 	ruli_addr.o ruli_sock.o ruli_txt.o ruli_msg.o ruli_fsm.o \
+ 	ruli_res.o ruli_parse.o ruli_host.o ruli_srv.o ruli_conf.o \
+diff -Naur ruli-0.35/tools/Makefile ruli-0.35.oden/tools/Makefile
+--- ruli-0.35/tools/Makefile	2005-06-13 12:56:27.000000000 +0200
++++ ruli-0.35.oden/tools/Makefile	2005-11-26 19:03:27.000000000 +0100
+@@ -34,7 +34,7 @@
+ endif
+ 
+ CC      = gcc
+-CFLAGS  = $(WARN) -O2 -pipe -g -I../src -I$(OOP_INCLUDE_DIR)
++CFLAGS  = $(WARN) $(RPM_OPT_FLAGS) -I../src -I$(OOP_INCLUDE_DIR)
+ 
+ LDFLAGS = -L../src -L$(OOP_LIB_DIR) -lruli -loop
+ 
