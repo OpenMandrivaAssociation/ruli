@@ -135,3 +135,59 @@ rm -rf %{buildroot}
 %doc tools/README
 %attr(0755,root,root) %{_bindir}/*
 %attr(0644,root,root) %{_mandir}/man1/*
+
+
+%changelog
+* Mon Oct 05 2009 Oden Eriksson <oeriksson@mandriva.com> 0.36-5mdv2010.0
++ Revision: 454043
+- P1: fix format string errors
+- rebuild
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - rebuild
+
+* Wed Jul 09 2008 Oden Eriksson <oeriksson@mandriva.com> 0.36-3mdv2009.0
++ Revision: 233001
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Wed Jan 02 2008 Olivier Blin <oblin@mandriva.com> 0.36-2mdv2008.1
++ Revision: 140755
+- restore BuildRoot
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sun Sep 09 2007 Oden Eriksson <oeriksson@mandriva.com> 0.36-2mdv2008.0
++ Revision: 83648
+- new devel naming
+
+
+* Mon Nov 20 2006 Oden Eriksson <oeriksson@mandriva.com> 0.36-1mdv2007.0
++ Revision: 85478
+- Import ruli
+
+* Mon May 08 2006 Oden Eriksson <oeriksson@mandriva.com> 0.36-1mdk
+- 0.36
+
+* Sat Nov 26 2005 Oden Eriksson <oeriksson@mandriva.com> 0.35-2mdk
+- oops! new major...
+
+* Sat Nov 26 2005 Oden Eriksson <oeriksson@mandriva.com> 0.35-1mdk
+- 0.35
+- rediffed P0
+
+* Fri Dec 31 2004 Oden Eriksson <oeriksson@mandrakesoft.com> 0.29-4mdk
+- revert latest "lib64 fixes"
+
+* Tue Dec 28 2004 Oden Eriksson <oeriksson@mandrakesoft.com> 0.29-3mdk
+- lib64 fixes
+
+* Sun Dec 12 2004 Oden Eriksson <oeriksson@mandrakesoft.com> 0.29-2mdk
+- lib64 fixes
+
+* Mon Aug 30 2004 Oden Eriksson <oeriksson@mandrakesoft.com> 0.29-1mdk
+- initial mandrake package
+
