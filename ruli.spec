@@ -8,7 +8,7 @@ Version:	0.36
 Release:	6
 License:	BSD
 Group:		System/Libraries
-URL:		http://www.nongnu.org/ruli/
+URL:		https://www.nongnu.org/ruli/
 Source0:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz
 Source2:	http://savannah.nongnu.org/download/ruli/ruli_%{version}.orig.tar.gz.sig
 Patch0:		ruli-0.35-optflags.diff
